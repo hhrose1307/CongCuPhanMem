@@ -1,0 +1,77 @@
+﻿@using CongNghePhanMem.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Sach>
+
+@{
+    ViewBag.Title = "Tất cả sách";
+    Layout = "~/Views/Shared/LayoutHF.cshtml";
+}   
+
+<div class="general">
+    <div class="container">
+        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+            <ul id="myTab" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Tất cả sách</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+                    <div class="w3_agile_featured_movies">
+                        @{
+                            foreach (var item in Model)
+                            {
+                                <div class="col-md-2 w3l-movie-gride-agile">
+                                    <a href="@Url.Action("ChiTiet","Sach",new {@MaSach=item.MaSach})" class="hvr-shutter-out-horizontal">
+                                        <img src="@Url.Content("~/image/Sach/"+@item.AnhBia)" title="Xem chi tiết..." class="img-responsive" alt=" " />
+                                        <div class="w3l-action-icon"><i class="fa fa-hand-o-right" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_w3layouts_mid_1_home">
+                                        <div class="w3l-movie-text">
+                                            <h6><a href="@Url.Action("ChiTiet","Sach",new {@MaSach=item.MaSach})">@item.TenSach</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>@item.GiaBan VND</p>
+                                            <div class="block-stars">
+                                                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                                                {
+                                                    if (item.SLTon != 0)
+                                                    {
+                                                        <button type="submit" onclick="Mua()" style="background-color:orangered" value="Mua hàng"><i class="fa fa-cart-plus" aria-hidden="true"></i>Mua hàng</button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <button type="submit" onclick=" Mua1()"  style="background-color:orangered" value="Mua hàng"><i class="fa fa-cart-plus" aria-hidden="true"></i>Mua hàng</button>
+                                                    }
+                                                    <script>
+                                                        function Mua() {
+                                                             if (@item.SLTon!=0) {
+                                                                 alert("Thêm vào giỏ hàng thành công!");
+                                                                 return true;
+                                                             }
+                                                         }
+                                                    </script>
+                                                    <script>
+                                                        function Mua1() {
+                                                            if (@item.SLTon!=0) {                                                               
+                                                                alert("Sách này đã hết hàng, thêm thất bại!");   
+                                                                return false;
+                                                            }
+                                                            
+                                                        }
+                                                    </script>
+                                                } 
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+            @Html.PagedListPager(Model,page=>Url.Action("AllSach",new { page=page}))
+        </div>
+    </div>
+</div>

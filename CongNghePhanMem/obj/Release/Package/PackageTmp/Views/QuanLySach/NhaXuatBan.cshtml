@@ -1,0 +1,56 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+
+@model PagedList.IPagedList<CongNghePhanMem.Models.NhaXuatBan>
+
+@{
+    ViewBag.Title = "Nhà xuất bản";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Nhà xuất bản</h2>
+
+<p>
+    <i class="fa fa-address-card" aria-hidden="true">@Html.ActionLink("Thêm mới", "ThemNXB")</i>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaNXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenNXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Mail)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mail)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "SuaNXB", new {@MaNXB=item.MaNXB}) |
+            @Html.ActionLink("Xóa", "XoaNXB", new { @MaNXB = item.MaNXB , @onclick = "return confirm('Bạn chắc chắn muốn xóa?')" })
+        </td>
+    </tr>
+}
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("NhaXuatBan", new { page = page }))

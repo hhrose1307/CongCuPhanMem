@@ -1,0 +1,25 @@
+﻿@using CongNghePhanMem.Models;
+@model List<Sach>
+
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="single-right-grids">
+            <div class="col-md-4 single-right-grid-left">
+                <a href="@Url.Action("ChiTiet","Sach",new { @MaSach = item.MaSach })"><img src="@Url.Content("~/image/Sach/"+item.AnhBia)" alt="" /></a>
+            </div>
+            <div class="col-md-8 single-right-grid-right">
+                <a href="@Url.Action("ChiTiet","Sach",new { @MaSach = item.MaSach })" class="title"> @item.TenSach</a>
+                <p class="author"><a href="#" class="author"></a></p>
+                <p class="views">Chủ đề:@item.ChuDe.TenChuDe</p>
+                <p class="views">Loại:@item.LoaiSach.TenLoai</p>
+                <p class="views">Nhà xuất bản:@item.NhaXuatBan.TenNXB</p>
+                <p class="views" style="text-decoration: line-through">Giá gốc:@String.Format("{0:0,0}", @item.GiaBan) VND</p>
+                <p class="views">Giá:@String.Format("{0:0,0}", @item.GiaKhuyenMai) VND</p>
+                
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    }
+}

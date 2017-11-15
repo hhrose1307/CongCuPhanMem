@@ -1,0 +1,65 @@
+﻿@model CongNghePhanMem.Models.GiaoDien
+
+@{
+    ViewBag.Title = "Sửa google map";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Sửa google map</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaTri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaTri, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên công ty..." } })
+                @Html.ValidationMessageFor(model => model.GiaTri, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaTri1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaTri1, new { htmlAttributes = new { @class = "form-control" , @placeholder = "Nhập tọa độ 1..." } })
+                @Html.ValidationMessageFor(model => model.GiaTri1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaTri2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaTri2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tọa độ 2" } })
+                @Html.ValidationMessageFor(model => model.GiaTri2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" style="background-color:lightseagreen" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+        <br />
+        <br />
+        <div id="luuy">
+            <h3 style="color:red">Lưu ý</h3>
+            <h4>Giá trị: Nhập tên cửa hàng.</h4>
+            <h4>Giá trị 1: Lấy tọa độ thứ nhất của cửa hàng.</h4>
+            <h4>Giá trị 2: Lấy tọa độ thứ hai của cửa hàng.</h4>
+            <h4>- Cách lấy tọa độ</h4>
+            <h4>+ Bước 1: Truy cập google(http://map.google.com).</h4>
+            <h4>+ Bước 2: Nhập địa chỉ cửa hàng và tìm kiếm.</h4>
+            <h4>+ Bước 3: Sau khi đã hiện tìm kiếm, click chuột phải và chọn "đây là?".</h4>
+            <h4>+ Bước 4: Sau khi hiện ra cửa sổ nhỏ gồm 2 số,thì số đầu tiên tương ứng tọa độ 1 và số thứ 2 tương ứng tọa độ 2.</h4>
+        </div>
+    </div>
+}
+<style>
+    #luuy {
+        margin-left: 100px;
+    }
+</style>

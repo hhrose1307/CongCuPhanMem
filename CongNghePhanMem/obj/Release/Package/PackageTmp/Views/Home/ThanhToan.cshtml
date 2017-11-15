@@ -1,0 +1,14 @@
+﻿@using CongNghePhanMem.Models;
+@model List<GiaoDien>
+
+
+@foreach (var item in Model)
+            {
+    <tr>
+        <td>@item.ThuocTinh</td>
+        <td>@item.GiaTri</td>
+        <td>@item.GiaTri1</td>
+        <td>@item.GiaTri2</td>
+    </tr>
+}
+

@@ -1,0 +1,72 @@
+﻿@model CongNghePhanMem.Models.GiaoDien
+
+@{
+    ViewBag.Title = "Sửa thẻ";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Sửa thẻ ngân hàng</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ThuocTinh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ThuocTinh, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên thẻ..." } })
+                @Html.ValidationMessageFor(model => model.ThuocTinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaTri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaTri, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập số tài khoản thẻ..." } })
+                @Html.ValidationMessageFor(model => model.GiaTri, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaTri1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaTri1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập họ tên chủ thẻ..." } })
+                @Html.ValidationMessageFor(model => model.GiaTri1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaTri2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaTri2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập địa chỉ ngân hàng lập thẻ..." } })
+                @Html.ValidationMessageFor(model => model.GiaTri2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" style="background-color:lightseagreen" class="btn btn-default" />
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <div id="luuy">
+            <h3 style="color:red">Lưu ý</h3>
+            <h4>Thuộc tính: Tên ngân hàng</h4>
+            <h4>Giá trị: Mã thẻ</h4>
+            <h4>Giá trị 1: Họ tên chủ thẻ</h4>
+            <h4>Giá trị 2: Địa chỉ nơi làm thẻ</h4>
+        </div>
+    </div>
+}
+
+<style>
+    #luuy {
+        margin-left: 90px;
+    }
+</style>
+

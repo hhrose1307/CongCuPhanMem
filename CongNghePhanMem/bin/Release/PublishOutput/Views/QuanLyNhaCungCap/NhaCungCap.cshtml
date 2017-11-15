@@ -1,0 +1,55 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<CongNghePhanMem.Models.NhaCungCap>
+
+@{
+    ViewBag.Title = "Nhà cung cấp";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin nhà cung cấp</h2>
+
+<p>
+    <i class="fa fa-address-card" aria-hidden="true">@Html.ActionLink("Thêm mới", "ThemNCC")</i>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenNCC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Email)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNCC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "SuaNCC", new {@MaNCC=item.MaNCC}) |
+            @Html.ActionLink("Xóa", "XoaNCC", new { @MaNCC=item.MaNCC, @onclick = "return confirm('Bạn chắc chắn muốn xóa?')" })
+        </td>
+    </tr>
+}
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("NhaCungCap", new { page = page }))

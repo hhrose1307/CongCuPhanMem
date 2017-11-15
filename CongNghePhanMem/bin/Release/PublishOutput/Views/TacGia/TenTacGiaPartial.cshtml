@@ -1,0 +1,13 @@
+﻿@using CongNghePhanMem.Models;
+@model List<TacGia>
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="col-sm-4">
+            <ul class="multi-column-dropdown">
+                <li><a href="@Url.Action("SachTheoTacGia","TacGia",new { @MaTG=item.MaTG})">@item.TenTG</a></li>
+            </ul>
+        </div>
+    }
+}

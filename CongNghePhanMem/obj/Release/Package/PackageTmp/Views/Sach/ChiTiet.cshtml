@@ -1,0 +1,157 @@
+﻿@using CongNghePhanMem.Models;
+@model Sach 
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/LayoutHF.cshtml";
+}
+
+<div class="container">
+    <!-- /w3l-medile-movies-grids -->
+    <div class="single-page-agile-info">
+        <!-- /movie-browse-agile -->
+        <div class="show-top-grids-w3lagile">
+            <div class="col-sm-8 single-left">
+                <div class="BenPhai">
+                    <div class="song">
+                        <div class="song-info">
+                            <h3>@Model.TenSach</h3>
+                        </div>
+
+                        <div class="image">
+                            <img src="@Url.Content("~/image/Sach/"+Model.AnhBia)" width="250" height="360" />
+                           
+                        </div>
+                    </div>
+                </div>
+                    
+                    <div class="general">
+                        <div class="container">
+                            <div class="BenTrai">
+
+                                <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Thông tin</a></li>
+                                        <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Mô tả</a></li>
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+                                            <h4>Tình trạng:@ViewBag.TinhTrang</h4>
+                                            <h4>Tác giả:@ViewBag.TenTG</h4>
+                                            <h4>Chủ đề:@ViewBag.TenChuDe</h4>
+                                            <h4>Loại sách:@ViewBag.TenLoai</h4>
+                                            <h4>Nhà xuất bản:@ViewBag.TenNhaXuatBan</h4>
+                                            <h4>Ngày đăng:@Model.NgayCapNhat</h4>
+                                            @if(Model.GiaKhuyenMai!=null)
+                                            {
+                                            <h4 style="text-decoration: line-through">Giá gốc:@String.Format("{0:0,0}", @Model.GiaBan) VND</h4>
+                                            <h4>Giá khuyến mãi:@String.Format("{0:0,0}", @Model.GiaKhuyenMai) VND</h4>
+                                            }
+                                            @if (Model.GiaKhuyenMai == null)
+                                            {
+                                            <h4>Giá bán:@String.Format("{0:0,0}", @Model.GiaBan) VND</h4>
+                                            }
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+                                            <h>@Model.MoTa</h>
+                                        </div>
+                                        <br />                                       
+                                    </div>
+                                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = Model.MaSach, @strURL = Request.Url.ToString() }))
+                                    {
+                                        if (Model.SLTon!=0)
+                                        {
+                                            <input type="submit" onclick="Mua()" style="cursor:pointer" value="Mua hàng" id="btnGioHang" />
+                                        }
+                                        else
+                                        {
+                                            <input type="submit" onclick="Mua1()" style="cursor:pointer" value="Mua hàng" id="btnGioHang" />
+                                        }
+
+                                    }
+                                    </div>
+                                </div>                           
+                            </div>  
+                </div>
+                <script>
+                                function Mua() {
+                                    if (@Model.SLTon!=0) {
+                                        alert("Thêm giỏ hàng thành công!")
+                                        return true;
+                                    }
+                                }
+                </script> 
+                <script>
+                                function Mua1() {
+                                    if (@Model.SLTon==0) {
+                                        alert("Sách này đã hết hàng, thêm thất bại!")
+                                        return true;
+                                    }
+                                }
+                </script>
+                <div class="song-grid-right">
+                    <div class="share">
+                        <h4>Chia sẻ với bạn bè</h4>
+                        <div class="fb-like" data-href="http://localhost:51138/Sach/ChiTiet?@Model.MaSach" data-layout="standard" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>                   
+                    </div>
+                    <div class="fb-comments" data-href="http://localhost:51138/Sach/ChiTiet?@Model.MaSach" data-numposts="5"></div>
+                    </div>                
+                </div>           
+            <div class="col-md-4 single-right">
+                <h3>Giảm giá nhiều</h3>
+                <div class="single-grid-right">
+                    @Html.Action("SachRight", "Sach")
+                </div>
+                <div class="clearfix"> </div>
+            </div>           
+         </div>
+        
+    </div>    
+</div>
+    <!-- //w3l-latest-movies-grids -->
+<script src="js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');
+        }
+    );
+});
+</script>
+<!-- //Bootstrap Core JavaScript -->
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+		$(document).ready(function() {
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+			});
+</script>
+<style>
+.BenPhai {
+    float:left;
+    width:300px;
+}
+.BenTrai{
+    float:left;
+    padding-right:350px;    
+}
+    .BenTrai input[type="submit"] {
+        width: 180px;
+        height: 50px;
+        background-color: orangered;
+    }
+    .sachmoi {
+        float:left;
+        padding-right:700px;
+        
+    }
+</style>
+

@@ -1,0 +1,78 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<CongNghePhanMem.Models.HopDongNCC>
+
+@{
+    ViewBag.Title = "Hợp đồng nhà cung cấp";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Hợp đồng</h2>
+
+<p>
+    <i class="fa fa-address-card" aria-hidden="true">@Html.ActionLink("Thêm mới", "ThemHD")</i>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên hợp đồng
+        </th>
+        <th>
+            Nhà cung cấp
+        </th>
+        <th>
+            Ngày ký
+        </th>
+        <th>
+            Thời hạn
+        </th>
+        <th>
+            Ngày giao
+        </th>
+        <th>
+            Đã giao hàng
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+        <th>
+            Đã thanh toán
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenHD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhaCungCap.TenNCC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayKi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThoiHan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayGiao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinhTrangGiaoHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TongTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DaThanhToan)
+        </td>
+        <td>
+            @Html.ActionLink("Chi Tiết", "Mua", new { @MaHD=item.MaHD }) |
+            @Html.ActionLink("Xóa", "XoaHD", new {@MaHD=item.MaHD, @onclick = "return confirm('Bạn chắc chắn muốn xóa?')" })
+        </td>
+    </tr>
+}
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("HopDong", new { page = page }))

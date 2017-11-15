@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CongNghePhanMem.Models.TinhTrangNguoiDung>
+
+@{
+    ViewBag.Title = "Tình trạng";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Tình trạng</h2>
+
+<p>
+    <i class="fa fa-address-card" aria-hidden="true">@Html.ActionLink("Thêm mới", "Them")</i>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã tình trạng
+        </th>
+        <th>
+            Tên tình trạng
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenTT)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "SuaTT", new {@MaTT=item.MaTT})
+        </td>
+    </tr>
+}
+
+</table>

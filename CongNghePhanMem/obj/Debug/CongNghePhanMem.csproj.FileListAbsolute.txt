@@ -1,0 +1,216 @@
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\csc.exe
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\vbc.exe
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\VBCSCompiler.exe
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CongNghePhanMem.dll.config
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CongNghePhanMem.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CongNghePhanMem.pdb
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Antlr3.Runtime.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Newtonsoft.Json.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Net.Http.Formatting.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Helpers.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.WebHost.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Mvc.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Optimization.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Razor.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Deployment.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Razor.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\WebGrease.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Helpers.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Mvc.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Optimization.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Razor.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Deployment.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Razor.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Antlr3.Runtime.pdb
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Newtonsoft.Json.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Net.Http.Formatting.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.WebHost.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\obj\Debug\CongNghePhanMem.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\obj\Debug\CongNghePhanMem.pdb
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.SqlServer.dll
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.xml
+C:\Users\hp\documents\visual studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.SqlServer.xml
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\PagedList.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\PagedList.Mvc.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\PagedList.xml
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\PagedList.Mvc.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\csc.exe
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\vbc.exe
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\VBCSCompiler.exe
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\CongNghePhanMem.dll.config
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\CongNghePhanMem.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\CongNghePhanMem.pdb
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\Antlr3.Runtime.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.SqlServer.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\Newtonsoft.Json.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\PagedList.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\PagedList.Mvc.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Net.Http.Formatting.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Helpers.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.WebHost.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Mvc.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Optimization.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Razor.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Deployment.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Razor.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\WebGrease.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.SqlServer.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\PagedList.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\PagedList.Mvc.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Helpers.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Mvc.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Optimization.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Razor.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Deployment.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Razor.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\Antlr3.Runtime.pdb
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\Newtonsoft.Json.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Net.Http.Formatting.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.WebHost.xml
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\obj\Debug\CongNghePhanMem.csprojResolveAssemblyReference.cache
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\obj\Debug\CongNghePhanMem.dll
+C:\Users\hp\Desktop\Công nghệ phần mềm\CongNghePhanMem\CongNghePhanMem\obj\Debug\CongNghePhanMem.pdb
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Owin.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.xml
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.xml
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportSource.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.Shared.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\stdole.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Facebook.dll
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\bin\Facebook.xml
+C:\Users\hp\Documents\Visual Studio 2015\Projects\CongNghePhanMem\CongNghePhanMem\obj\Debug\CongNghePhanMem.csprojResolveAssemblyReference.cache
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\csc.exe
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\vbc.exe
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\VBCSCompiler.exe
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CongNghePhanMem.dll.config
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CongNghePhanMem.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CongNghePhanMem.pdb
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Antlr3.Runtime.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportSource.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.Shared.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.SqlServer.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Facebook.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Newtonsoft.Json.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Owin.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\PagedList.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\PagedList.Mvc.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Net.Http.Formatting.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Helpers.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.WebHost.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Mvc.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Optimization.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Razor.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Deployment.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Razor.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\WebGrease.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\stdole.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\EntityFramework.SqlServer.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Facebook.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\PagedList.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\PagedList.Mvc.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Helpers.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Mvc.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Optimization.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Razor.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Deployment.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.WebPages.Razor.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Antlr3.Runtime.pdb
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\Newtonsoft.Json.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Net.Http.Formatting.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\bin\System.Web.Http.WebHost.xml
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\obj\Debug\CongNghePhanMem.csprojResolveAssemblyReference.cache
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\obj\Debug\CongNghePhanMem.dll
+C:\Users\hp\Desktop\luutru\CongNghePhanMem\CongNghePhanMem\obj\Debug\CongNghePhanMem.pdb

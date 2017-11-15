@@ -1,0 +1,15 @@
+﻿@using CongNghePhanMem.Models;
+@model List<LoaiSach>
+
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="col-sm-4">
+            <ul class="multi-column-dropdown">
+                <li><a href="@Url.Action("SachTheoLoai","LoaiSach", new { @MaLoai=item.MaLoai})">@item.TenLoai</a></li>
+                
+            </ul>
+        </div>
+    }
+}

@@ -1,0 +1,57 @@
+﻿@using CongNghePhanMem.Models;
+@model List<Sach>
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="col-md-2 w3l-movie-gride-agile">
+            <a href="@Url.Action("ChiTiet","Sach",new {@MaSach=item.MaSach})" class="hvr-shutter-out-horizontal">
+                <img src="@Url.Content("~/image/Sach/"+@item.AnhBia)" title="Xem chi tiết..." class="img-responsive" alt=" " />
+                <div class="w3l-action-icon"><i class="fa fa-hand-o-right" aria-hidden="true"></i></div>
+            </a>
+            <div class="mid-1 agileits_w3layouts_mid_1_home">
+                <div class="w3l-movie-text">
+                    <h6><a href="@Url.Action("ChiTiet","Sach",new {@MaSach=item.MaSach})">@item.TenSach</a></h6>
+                </div>
+                <div class="mid-2 agile_mid_2_home">
+                    <p>@item.GiaBan VND</p>
+                    <div class="block-stars">
+                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                        {
+                            if (item.SLTon != 0)
+                            {
+                                <button type="submit" onclick="Mua()" style="background-color:orangered" value="Mua hàng"><i class="fa fa-cart-plus" aria-hidden="true"></i>Mua hàng</button>
+                            }
+                            else
+                            {
+                                <button type="submit" onclick="Mua1()" style="background-color:orangered" value="Mua hàng"><i class="fa fa-cart-plus" aria-hidden="true"></i>Mua hàng</button>
+                            }
+                            <script>
+                                function Mua() {
+                                    if (@item.SLTon!=0) {
+                                        alert("Thêm vào giỏ hàng thành công!")
+                                        return true;
+                                    }
+                                }
+                            </script>
+                                                <script>
+                                function Mua1() {
+                                    if (@item.SLTon!=0) {
+                                        alert("Sách này đã hết hàng, thêm thất bại!")
+                                        return true;
+                                    }
+                                }
+                                                </script>
+                        }
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="ribben" style="background-color:red">
+                <p style="background-color:red">HOT</p>
+            </div>
+        </div>
+        
+    }
+}
+

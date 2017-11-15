@@ -1,0 +1,83 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<CongNghePhanMem.Models.NguoiDung>
+
+@{
+    ViewBag.Title = "Người dùng";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Người dùng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Tên đăng nhập
+        </th>
+        <th>
+            Họ tên
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Ảnh Đại diện
+        </th>
+        <th>
+            Tình trạng
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDangNhap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioiTinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.AnhDaiDien)*@
+            <span id="hinh"><img src="@Url.Content("~/image/avatar/"+item.AnhDaiDien)" /></span>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinhTrangNguoiDung.TenTT)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "SuaNguoiDung", new {@MaND=item.MaND })
+        </td>
+    </tr>
+}
+
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("NguoiDung", new { page = page }))
+<style>
+    #hinh img{
+        width:80px;
+        height:80px;
+    }
+</style>

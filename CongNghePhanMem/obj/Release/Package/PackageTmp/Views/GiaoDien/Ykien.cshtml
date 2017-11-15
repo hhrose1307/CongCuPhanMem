@@ -1,0 +1,73 @@
+﻿@using CongNghePhanMem.Models;
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<PhanHoi>
+@{
+    ViewBag.Title = "Ý kiến đóng góp";
+    Layout = "~/Views/Shared/LayoutHF.cshtml";
+}
+
+<div class="container">
+    <div class="single-page-agile-info">
+        <div class="show-top-grids-w3lagile">
+            <div class="col-sm-8 single-left">               
+                <div class="all-comments">
+                    <div class="all-comments-info">
+                        <h3 style="color:orangered">Xin chào: @ViewBag.Ten</h3><br />
+                        <h4>Ý kiến & Phản hồi</h4>
+                        <div class="agile-info-wthree-box">
+                            @using (Html.BeginForm("Send","GiaoDien"))
+                            { 
+                                <textarea name="txtNoiDung" placeholder="Message" required=""></textarea>
+                                <input type="submit" onclick="return confirm('Bạn chắc chắn muốn gửi?')" value="Gửi">
+                                <div class="clearfix"></div>
+                            }
+                        </div>
+                    </div>
+                    <div class="media-grids">
+                        @{
+                            foreach (var item in Model)
+                            {
+                                <div class="media">
+                                    <div class="media-left" style="width:30px; height:30px">
+                                        <a href="#">
+                                            <img src="@Url.Content("~/image/avatar/" + item.NguoiDung.AnhDaiDien)" title="Ảnh đại diện" alt="" />
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5>Nội dung:@item.NoiDung</h5><br />
+                                        @if (item.TraLoi == null)
+                                        {
+                                            <h5>-Chưa phản hồi</h5>
+                                        }
+                                        else
+                                        {
+                                            <h5>-Trả lời: @item.TraLoi</h5>
+                                        }
+                                        
+                                    </div>
+                                </div>
+                                }
+                        }                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 single-right">
+                <h3>Giảm giá nhiều</h3>
+                <div class="single-grid-right">
+                    @Html.Action("SachRight", "Sach")
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Ykien", new { page = page }))
+    </div>
+</div>
+<style>
+    .media-left img{
+        width:50px;
+        height:50px;
+    }
+</style>
+

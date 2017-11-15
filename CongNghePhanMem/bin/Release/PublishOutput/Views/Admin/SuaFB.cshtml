@@ -1,0 +1,63 @@
+﻿@model CongNghePhanMem.Models.GiaoDien
+
+@{
+    ViewBag.Title = "Sửa địa chỉ facebook";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Sửa thông tin liên kết mạng xã hội</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    <div class="form-horizontal">
+        @Html.HiddenFor(model=>model.ID)
+        <div class="form-group">
+            @Html.LabelFor(model => model.ThuocTinh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ThuocTinh, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên mạng xã hội..." } })
+                @Html.ValidationMessageFor(model => model.ThuocTinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaTri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaTri, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập link liên kết..." } })
+                @Html.ValidationMessageFor(model => model.GiaTri, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaTri1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaTri1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập icon theo danh sách bên dưới..." } })
+                @Html.ValidationMessageFor(model => model.GiaTri1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" style="background-color:lightseagreen" />
+            </div>
+        </div>
+        <br />
+        <br />
+        
+        <div id="luuy" class="">
+            <h3 style="color:red">Lưu ý</h3>
+            <h4>Thuộc tính 1: Tên mạng xã hội</h4>
+            <h4>Giá trị: Link liên kết mạng xã hội</h4>
+            <h4>Giá trị 1: Những icon của mạng xã hội. Chỉ chọn 1 trong các mục sau:</h4>
+            <h4>-Icon Facbook: fa fa-facebook</h4>
+            <h4>-Icon Twitch: fa fa-twitch</h4>
+            <h4>-Icon Skype: fa fa-skype</h4>
+        </div>
+    </div>
+}
+<style>
+    #luuy{
+        margin-left:100px;
+    }
+</style>
+

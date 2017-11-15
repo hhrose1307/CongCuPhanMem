@@ -1,0 +1,356 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <title>One Movies an Entertainment Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Content/css/contactstyle.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Content/css/faqstyle.css" type="text/css" media="all" />
+    <link href="~/Content/css/single.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/css/medile.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/font-awaysome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- banner-slider -->
+    <link href="~/Content/css/jquery.slidey.min.css" rel="stylesheet">
+    <!-- //banner-slider -->
+    <!-- pop-up -->
+    <link href="~/Content/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //pop-up -->
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css" />
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <script type="text/javascript" src="~/Content/js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <!-- banner-bottom-plugin -->
+    <link href="~/Content/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+    <script src="~/Content/js/owl.carousel.js"></script>
+    <script>
+	$(document).ready(function() {
+		$("#owl-demo").owlCarousel({
+
+		  autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+		  items : 5,
+		  itemsDesktop : [640,4],
+		  itemsDesktopSmall : [414,3]
+
+		});
+
+	});
+    </script>
+    <!-- //banner-bottom-plugin -->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/Content/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Content/js/easing.js"></script>
+    <!--Js Alert message-->
+    <script src="~/templatebackend/js/alert-message.js"></script>
+
+    <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+    </script>
+    <!-- start-smoth-scrolling -->
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <div class="w3layouts_logo">
+                <a href="@Url.Action("Index","Trang chủ")">
+                    @Html.Action("Logo","GiaoDien")
+                </a>
+            </div>
+            @using (Html.BeginForm("KetQuaSearch", "Search", FormMethod.Post))
+            {
+                <div class="w3_search">
+                        @Html.TextBox("txtSearch", "", htmlAttributes: new { @class = "TextBoxSearch", @placeholder = "Nhập từ khóa..." })
+                        <input type="submit" name="Command" value="Tìm kiếm" />
+                </div>
+            }
+            
+            <div class="w3l_sign_in_register">
+                <ul>
+                    @Html.Action("DienThoai", "GiaoDien")
+
+                    @if (Session["TenDangNhap"] != null)
+                    {
+
+                        <li><a href="@Url.Action("LogOut","NguoiDung")"><i class="fa fa-user-circle" aria-hidden="true"></i>Đăng xuất</a></li>
+                    }
+                    @if(Session["TenDangNhap"] == null)
+                    {
+                            <li><a href="#" data-toggle="modal" data-target="#myModal">Đăng nhập</a></li>
+                            
+                    }
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //header -->
+    <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Đăng nhập & Đăng ký
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+
+                <section>
+                    <div class="modal-body">
+                        <div class="w3_login_module">
+                            <div class="module form-module">
+                                <div class="toggle">
+                                    <i class="fa fa-times fa-pencil"></i>
+                                    <div class="tooltip">Đăng ký</div>
+                                </div>
+                                <div class="form">
+                                    <h3>Nhập tài khoản</h3>                                   
+                                        @Html.Action("DangNhap", "NguoiDung")
+                                </div>
+                                <div class="form">
+                                    <h3>Nhập thông tin tài khoản</h3>
+                                        @Html.Action("DangKy", "NguoiDung")
+                                </div>
+                                <div class="cta"><a href="@Url.Action("QuenMatKhau","NguoiDung")">Quên mật khẩu?</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- bootstrap-pop-up -->
+    <script>
+        $('.toggle').click(function () {
+            // Switches the Icon
+            $(this).children('i').toggleClass('fa-pencil');
+            // Switches the forms
+            $('.form').animate({
+                height: "toggle",
+                'padding-top': 'toggle',
+                'padding-bottom': 'toggle',
+                opacity: "toggle"
+            }, "slow");
+        });
+    </script>
+
+    <!-- //bootstrap-pop-up -->
+    <!-- nav -->
+    <div class="movies_nav">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header navbar-left">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <nav>
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sách <b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <li>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="@Url.Action("AllSach","Sach")">Tất cả sách</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="@Url.Action("AllSachMoi","Sach")">Sách mới</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="@Url.Action("AllKhuyenMai","Sach")">Sách khuyến mãi</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Chủ Đề <b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <li>
+                                        @Html.Action("ChuDePartial", "ChuDe")
+                                        <div class="clearfix"></div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Loại<b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <li>
+                                        @Html.Action("LoaiSachPartial", "LoaiSach")
+                                        <div class="clearfix"></div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tác Giả <b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <li>
+                                        @Html.Action("TenTacGiaPartial", "TacGia")
+
+                                        <div class="clearfix"></div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhà Xuất bản <b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <li>
+                                        @Html.Action("NXBPartial", "NXB")
+                                        <div class="clearfix"></div>
+                                    </li>
+                                </ul>
+                            </li>
+                            @Html.Action("GioHangPartial","GioHang")
+                        </ul>
+                    </nav>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- //nav -->
+    <!-- banner -->
+    <div class="general_social_icons">
+        <nav class="social">
+            <ul>
+                <li class="w3_dribbble"><a href="@Url.Action("GioHang","GioHang")">Giỏ hàng của bạn<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
+                <li class="w3_g_plus"><a href="@Url.Action("LienHe","Home")">Thông tin liên hệ<i class="fa fa-comments" aria-hidden="true"></i></a></li>
+                @if (Session["TenDangNhap"] == null)
+                {
+                    <li class="w3_twitter"><a href="@Url.Action("Ykien","GiaoDien")" onclick="return confirm('Bạn cần phải đăng nhập?')">Đóng góp ý kiến<i class="fa fa-paper-plane-o" aria-hidden="true"></i></a></li>
+                }
+                else
+                {
+                    <li class="w3_twitter"><a href="@Url.Action("Ykien","GiaoDien")">Đóng góp ý kiến<i class="fa fa-paper-plane-o" aria-hidden="true"></i></a></li>
+                }              
+                @Html.Action("FaceBook","GiaoDien")
+
+            </ul>
+        </nav>
+    </div>
+    @if (TempData["AlertMessage"] != null)
+            {
+        <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+            @TempData["AlertMessage"]
+        </div>
+    }
+    @RenderBody()
+    <div class="banner-bottom">
+        <div class="container">
+            <h3>Tin tức mới</h3> <br />
+            <div class="w3_agile_banner_bottom_grid">
+                <div id="owl-demo" class="owl-carousel owl-theme">
+                    @Html.Action("TinTucPartial", "TinTuc")
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fb-page" data-href="https://www.facebook.com/facebook" data-width="500" data-height="250" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
+    <div class="footer">
+        <div class="container">
+            <div class="w3ls_footer_grid">
+                @Html.Action("Map","Home")               
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-5 w3ls_footer_grid1_left">
+                <p>&copy; 2017 Webte thương mại điện tử | Công ty <a href="http://fb.com/Hoandz123">Hoàn đa cấp</a></p>
+            </div>
+            <div class="col-md-7 w3ls_footer_grid1_right">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("AllSach","Sach")">Sách</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ThongTin","NguoiDung")">Tài khoản</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("LienHe","Home")">Liên hệ</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Ykien","GiaoDien")">Hỏi đáp</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+    <!-- //footer -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //Bootstrap Core JavaScript -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <script src="~/Content/js/jquery.easing-1.3.min.js"></script>
+    <script src="~/Content/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script src="~/Content/js/shop.js"></script>
+
+    <!--Face book-->
+    <div id="fb-root"></div>
+    <script>
+(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=1926143684337223";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+</body>
+</html>

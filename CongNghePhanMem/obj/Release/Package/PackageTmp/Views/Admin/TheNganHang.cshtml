@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CongNghePhanMem.Models.GiaoDien>
+
+@{
+    ViewBag.Title = "Giao dịch ngân hàng";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Sửa thông tin ngân hàng</h2>
+<p>
+    <i class="fa fa-address-card" aria-hidden="true">  @Html.ActionLink("Thêm mới", "ThemThe", new { })</i>
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên ngân hàng
+        </th>
+        <th>
+            Số tài khoản
+        </th>
+        <th>
+            Họ tên chủ thẻ
+        </th>
+        <th>
+            Địa chỉ làm thẻ
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThuocTinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaTri)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaTri1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaTri2)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "SuaThe", new {@ID=item.ID}) |
+            @Html.ActionLink("Xóa", "XoaThe", new {@ID=item.ID, @onclick = "return confirm('Bạn chắc chắc xóa?')" })
+        </td>
+    </tr>
+}
+
+</table>
+
+

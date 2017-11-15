@@ -1,0 +1,49 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<CongNghePhanMem.Models.PhanHoi>
+
+@{
+    ViewBag.Title = "Ý kiến";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Ý kiến & Phản hồi</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Mã đọc giả
+        </th>
+        <th>
+            Nội dung ý kiến
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaND)
+        </td>
+        <td>
+            @if(item.NoiDung.Length>100)
+            {
+                <span>@item.NoiDung.Substring(0,100)...</span>
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.NoiDung)
+            }
+            
+        </td>
+        <td>
+            @Html.ActionLink("Trả lời", "TraLoi", new {@MaPH=item.MaPH}) |
+            @Html.ActionLink("Xóa", "XoaYKien",new {@MaPH=item.MaPH, @onclick = "return confirm('Bạn chắc chắn muốn xóa?')" })
+        </td>
+    </tr>
+}
+
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("YKien", new { page = page }))

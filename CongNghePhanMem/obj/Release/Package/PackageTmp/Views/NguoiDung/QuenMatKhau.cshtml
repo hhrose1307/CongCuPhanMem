@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Thông tin tài khoản";
+    Layout = "~/Views/Shared/LayoutHF.cshtml";
+}
+
+<div class="container">
+    <div class="single-page-agile-info">
+        <div class="show-top-grids-w3lagile">
+            <div class="col-sm-8 single-left">
+                <h2>Thông tin của tài khoản:</h2><br />
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="txtTen" id="dodai" placeholder="Nhập tên tài khoản của bạn..." />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                               <input type="text" name="txtEmail" id="dodai" placeholder="Nhập Email đăng ký tài khoản..."/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="password" name="txtPass" id="dodai" placeholder="Nhập mật khẩu mới..."/>
+                            </div>
+                        </div>
+                        @ViewBag.ThongBao
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" style="background-color:orangered" id="Loi" onclick="Loi()" value="Lưu" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-md-4 single-right">
+                <h3>Giảm giá nhiều</h3>
+                <div class="single-grid-right">
+                    @Html.Action("SachRight", "Sach")
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<script>
+    function Loi() {
+        alert("Lấy mật khẩu thành công, vui lòng đăng nhập lại!");
+    }
+</script>
+<style>
+    #dodai{
+        width:100%;
+        height:40px;
+    }
+    #Loi{
+        width:30%;
+        height:50px;
+        margin-left:15%;
+        background-color:orangered;
+    }
+</style>
+
