@@ -36,6 +36,37 @@ namespace CongNghePhanMem.Controllers
             }
             return View(); 
         }
+		[HttpGet]
+        public ActionResult LoginAdmin()
+        {           
+            return View();
+        }
+        [HttpPost]
+        public ActionResult LoginAdmin(FormCollection f)
+        {
+            if(ModelState.IsValid)
+            {
+                string sTen = f["txtTen"].ToString();
+                string sPass = f["txtPass"].ToString();
+                NguoiDung nd = cn.NguoiDungs.SingleOrDefault(n => n.TenDangNhap == sTen && n.MatKhau == sPass && n.MaTT == 1);
+                if (nd != null)
+                {
+                    ViewBag.ThongBao = "Thành công";
+                    Session["TenDangNhap"] = nd;
+                    SetAlert("Đăng nhập thành công!", "success");
+                    return RedirectToAction("Index", "Admin");
+                }
+                ViewBag.ThongBao = "Thất bại";
+                return View();
+            }
+            return View();
+            
+        }
+        public ActionResult LogOut()
+        {
+            Session["TenDangNhap"] = null;
+            return RedirectToAction("LoginAdmin", "Admin");
+        }   
         
 	}
 }
