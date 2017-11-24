@@ -209,6 +209,76 @@ namespace CongNghePhanMem.Controllers
             }
             return View(gd);
         }
+		[HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaThongTin(GiaoDien gd,HttpPostedFileBase fileupload)
+        {
+            if(ModelState.IsValid)
+            {
+                GiaoDien gd1 = cn.GiaoDiens.SingleOrDefault(n => n.ID == gd.ID);
+                if (gd1.ID == 1)
+                {
+                    var fileName = Path.GetFileName(fileupload.FileName);
+                    var path = Path.Combine(Server.MapPath("~/image/Logo"), fileName);
+                    if (System.IO.File.Exists(path))
+                    {
+                        ViewBag.ThongBao = "Hình ảnh đã tồn tại...";
+                    }
+                    else
+                    {
+                        fileupload.SaveAs(path);
+                        gd1.GiaTri = fileName;
+                        cn.SaveChanges();
+                    }
+                }
+                else
+                {
+                    gd1.GiaTri = gd.GiaTri;
+                    cn.SaveChanges();
+                    SetAlert("Sửa thông tin website thành công!", "success");
+                }
+            }           
+            return RedirectToAction("ThongTinWeb","Admin");
+        }
+        [HttpGet]
+        
+        public ActionResult ThongTin()
+        {
+            NguoiDung nd = (NguoiDung)Session["TenDangNhap"];
+            if (Session["TenDangNhap"] == null || Session["TenDangNhap"].ToString() == "")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                NguoiDung lst = cn.NguoiDungs.SingleOrDefault(n => n.MaND == nd.MaND);
+                return View(lst);
+            }
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThongTin(NguoiDung nd)
+        {
+            if(ModelState.IsValid)
+            {
+                NguoiDung nd1 = cn.NguoiDungs.SingleOrDefault(n => n.MaND == nd.MaND);
+                if (nd == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                nd1.TenDangNhap = nd.TenDangNhap;
+                nd1.MatKhau = nd.MatKhau;
+                nd1.HoTen = nd.HoTen;
+                nd1.Email = nd.Email;
+                nd1.SDT = nd.SDT;
+                nd1.NgaySinh = nd.NgaySinh;
+                nd1.GioiTinh = nd.GioiTinh;
+                cn.SaveChanges();
+                SetAlert("Cập nhật thông tin cá nhân thành công!", "success");
+            }           
+            return View();
+        }    
         
 	}
 }

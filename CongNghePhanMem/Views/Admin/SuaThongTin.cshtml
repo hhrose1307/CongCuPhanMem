@@ -1,0 +1,52 @@
+﻿@model CongNghePhanMem.Models.GiaoDien
+
+@{
+    ViewBag.Title = "Sửa thông tin";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+@if(Model.ID==1)
+{
+    <h2>Sửa Logo cửa hàng</h2>
+}
+@if (Model.ID == 2)
+{
+    <h2>Sửa tiêu đề</h2>
+}
+@if (Model.ID == 3)
+{
+    <h2>Sửa số điện thoại liên hệ</h2>
+}
+
+
+@using (Html.BeginForm("SuaThongTin","Admin",FormMethod.Post,new {@enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaTri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">   
+                @if(Model.ID==1)
+                {
+                    <input type="file" name="fileupload" />
+                    @ViewBag.ThongBao
+                }
+                @if(Model.ID!=1)
+                {
+                    @Html.EditorFor(model => model.GiaTri, new { htmlAttributes = new { @class = "form-control"} })
+                    @Html.ValidationMessageFor(model => model.GiaTri, "", new { @class = "text-danger" })
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" style="background-color:lightseagreen" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
