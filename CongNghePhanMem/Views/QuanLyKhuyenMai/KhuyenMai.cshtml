@@ -1,0 +1,77 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<CongNghePhanMem.Models.KhuyenMai>
+
+@{
+    ViewBag.Title = "Khuyến mãi";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Khuyến mãi</h2>
+
+<p>
+    <i class="fa fa-address-card" aria-hidden="true"> @Html.ActionLink("Thêm mới", "ThemKM")</i>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenKM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NgayBatDau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NgayKetThuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NoiDung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().AnhKM)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.TenKM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayBatDau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayKetThuc)
+        </td>
+        <td>
+            @if(item.NoiDung.Length>100)
+            {
+                <span>@item.NoiDung.Substring(0,100)...</span>
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.NoiDung)
+            }
+            
+        </td>
+        <td>
+            <span id="Anh"><img src="@Url.Content("~/image/KhuyenMai/"+item.AnhKM)" /></span>
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "SuaKM", new {@MaKM=item.MaKM}) |
+            @Html.ActionLink("Chi tiết", "ChiTietKM", new { @MaKM = item.MaKM }) |
+            @Html.ActionLink("Xóa", "XoaKM", new { @MaKM = item.MaKM, @onclick = "return confirm('Bạn chắc chắn muốn xóa?')" })
+        </td>
+    </tr>
+}
+
+</table>
+<style>
+    #Anh img{
+        width:80px;
+        height:60px;
+    }
+</style>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("KhuyenMai", new { page = page }))
