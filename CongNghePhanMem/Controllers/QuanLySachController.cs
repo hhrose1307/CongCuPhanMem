@@ -81,49 +81,55 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("ChuDe","QuanLySach");
         }
- //Viết sách
-        public ActionResult VietSach(int ?page)
+	 //Loại sách
+
+        public ActionResult LoaiSach(int ?page)
         {
             int pageSize = 25;
             int pageNumber = (page ?? 1);
-            var vs = cn.VietSaches.ToList().OrderBy(n=>n.MaTG).ToPagedList(pageNumber,pageSize);
-            return View(vs);
+            var ls = cn.LoaiSaches.ToList().OrderBy(n => n.MaLoai).ToPagedList(pageNumber,pageSize);
+            return View(ls);
+        }
+         
+        public ActionResult XoaLoai(int MaLoai=0)
+        {
+            if(ModelState.IsValid)
+            {
+                Sach sach = cn.Saches.FirstOrDefault(n => n.MaLoai == MaLoai);
+                if(sach!=null)
+                {
+                    SetAlert("Tồn tại loại trong quản lý sách", "warning");
+                }
+                else
+                {
+                    LoaiSach ls = cn.LoaiSaches.SingleOrDefault(n => n.MaLoai == MaLoai);
+                    cn.LoaiSaches.Remove(ls);
+                    cn.SaveChanges();
+                    SetAlert("Xóa thành công!", "success");
+                }
+                
+            }
+            return RedirectToAction("LoaiSach");
         }
         [HttpGet]
-        public ActionResult ThemVS()
+        public ActionResult ThemLoai()
         {
-            ViewBag.MaTG = new SelectList(cn.TacGias.ToList(), "MaTG", "TenTG");
-            ViewBag.MaSach = new SelectList(cn.Saches.ToList(), "MaSach", "TenSach");
             return View();
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult ThemVS(VietSach vs)
+        public ActionResult ThemLoai(LoaiSach ls)
         {
             if(ModelState.IsValid)
             {
-                VietSach vs1 = new VietSach();
-                vs1.MaTG = vs.MaTG;
-                vs1.MaSach = vs.MaSach;
-                vs1.VaiTro = vs.VaiTro;
-                vs1.ViTri = vs.ViTri;
-                cn.VietSaches.Add(vs1);
+                LoaiSach ls1 = new LoaiSach();
+                ls1.TenLoai = ls.TenLoai;
+                cn.LoaiSaches.Add(ls1);
                 cn.SaveChanges();
-                SetAlert("Thêm thành công", "success");
+                SetAlert("Thêm thành công!", "success");
             }
-            return RedirectToAction("VietSach", "QuanLySach");
+            return RedirectToAction("LoaiSach");
         }
 
-        public ActionResult XoaVS(int MaSach=0,int MaTG=0)
-        {
-            if(ModelState.IsValid)
-            {
-                VietSach vs = cn.VietSaches.SingleOrDefault(n => n.MaSach == MaSach && n.MaTG == MaTG);
-                cn.VietSaches.Remove(vs);
-                cn.SaveChanges();
-                SetAlert("xóa thành công!", "success");
-            }
-            return RedirectToAction("VietSach", "QuanLySach");
-        }
     }
 }
