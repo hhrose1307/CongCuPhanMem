@@ -130,6 +130,87 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("LoaiSach");
         }
+	//Tác giả
+        public ActionResult TacGia(int ? page)
+        {
+            int pageSize = 30;
+            int pageNumber = (page ?? 1);
+            var tg = cn.TacGias.ToList().OrderBy(n => n.MaTG).ToPagedList(pageNumber,pageSize);
+            return View(tg);
+        }
+         
+        public ActionResult XoaTG(int MaTG=0)
+        {
+            if(ModelState.IsValid)
+            {
+                VietSach vs = cn.VietSaches.FirstOrDefault(n => n.MaTG == MaTG);
+                if(vs!=null)
+                {
+                    SetAlert("Tồn tại tác giả trong quản lý viết sách!", "warning");
+                }
+                else
+                {
+                    TacGia tg = cn.TacGias.SingleOrDefault(n => n.MaTG == MaTG);
+                    cn.TacGias.Remove(tg);
+                    cn.SaveChanges();
+                    SetAlert("Xóa thành công", "success");
+                }
+                
+            }
+            return RedirectToAction("TacGia");
 
+        }
+
+        [HttpGet]
+        public ActionResult ThemTG()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+
+        public ActionResult ThemTG(TacGia tg)
+        {
+            if (ModelState.IsValid)
+            {
+                TacGia t = new TacGia();
+                t.TenTG = tg.TenTG;
+                t.DiaChi = tg.DiaChi;
+                t.TieuSu = tg.TieuSu;
+                t.SDT = null;
+                cn.TacGias.Add(t);
+                cn.SaveChanges();
+                SetAlert("Thêm thành công", "success");
+                
+            }
+            return RedirectToAction("TacGia");           
+        }
+
+        [HttpGet]
+        public ActionResult SuaTG(int MaTG=0)
+        {
+            TacGia tg = cn.TacGias.SingleOrDefault(n => n.MaTG == MaTG);
+            return View(tg);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaTG(TacGia tg)
+        {
+            if(ModelState.IsValid)
+            {
+                TacGia tg1 = cn.TacGias.SingleOrDefault(n => n.MaTG == tg.MaTG);
+                if(tg1==null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                tg1.TenTG = tg.TenTG;
+                tg1.DiaChi = tg.DiaChi;
+                tg1.TieuSu = tg.TieuSu;
+                cn.SaveChanges();
+                SetAlert("Sửa thành công!", "success");
+            }
+            return RedirectToAction("TacGia");
+        }
     }
 }
