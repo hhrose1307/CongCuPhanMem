@@ -1,0 +1,65 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<CongNghePhanMem.Models.TacGia>
+
+@{
+    ViewBag.Title = "Tác giả";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Tác giả</h2>
+
+<p>
+    <i class="fa fa-address-card" aria-hidden="true">@Html.ActionLink("Thêm mới", "ThemTG")</i>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaTG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenTG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TieuSu)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenTG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>       
+        <td>
+            @if (item.TieuSu.Length > 100)
+            {
+                <span>@item.TieuSu.Substring(0,100)...</span>
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.TieuSu)
+            }
+
+        </td>
+
+        <td>
+            @Html.ActionLink("Sửa", "SuaTG", new { @MaTG=item.MaTG}) |
+            @Html.ActionLink("Xóa", "XoaTG", new { @MaTG = item.MaTG })
+        </td>
+    </tr>
+}
+
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("TacGia", new { page = page , @onclick = "return confirm('Bạn chắc chắn muốn xóa?')" }))
