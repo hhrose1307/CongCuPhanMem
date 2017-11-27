@@ -212,5 +212,80 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("TacGia");
         }
+	//Nhà xuất bản
+        public ActionResult NhaXuatBan(int? page)
+        {
+            int pageSize = 30;
+            int pageNumber = (page ?? 1);
+            var nxb = cn.NhaXuatBans.ToList().OrderBy(n => n.MaNXB).ToPagedList(pageNumber,pageSize);
+            return View(nxb);
+        }
+        public ActionResult XoaNXB(int MaNXB=0)
+        {
+            if(ModelState.IsValid)
+            {
+                Sach sach = cn.Saches.FirstOrDefault(n => n.MaNXB == MaNXB);
+                if(sach!=null)
+                {
+                    SetAlert("Tồn tại nhà xuất bản trong quản lý sách!", "warning");
+                }
+                else
+                {
+                    NhaXuatBan nxb = cn.NhaXuatBans.SingleOrDefault(n => n.MaNXB == MaNXB);
+                    cn.NhaXuatBans.Remove(nxb);
+                    cn.SaveChanges();
+                    SetAlert("Xóa thành công!", "success");
+                }              
+            }
+            return RedirectToAction("NhaXuatBan");
+        }
+        [HttpGet]
+        public ActionResult ThemNXB()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemNXB(NhaXuatBan n)
+        {
+            if(ModelState.IsValid)
+            {
+                NhaXuatBan nn = new NhaXuatBan();
+                nn.TenNXB = n.TenNXB;
+                nn.DiaChi = n.DiaChi;
+                nn.Mail = n.Mail;
+                cn.NhaXuatBans.Add(nn);
+                cn.SaveChanges();
+                SetAlert("Thêm thành công!", "success");
+            }
+            return RedirectToAction("NhaXuatBan");
+        }
+
+        [HttpGet]
+        public ActionResult SuaNXB(int MaNXB=0)
+        {
+            NhaXuatBan nxb = cn.NhaXuatBans.SingleOrDefault(n => n.MaNXB == MaNXB);
+            return View(nxb);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaNXB(NhaXuatBan nb)
+        {
+            if(ModelState.IsValid)
+            {
+                NhaXuatBan n1 = cn.NhaXuatBans.SingleOrDefault(n => n.MaNXB == nb.MaNXB);
+                if(n1==null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                n1.TenNXB = nb.TenNXB;
+                n1.DiaChi = nb.DiaChi;
+                n1.Mail = nb.Mail;
+                cn.SaveChanges();
+                SetAlert("Sửa thành công!", "success");
+            }
+            return RedirectToAction("NhaXuatBan");
+        }
     }
 }
