@@ -1,0 +1,85 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<CongNghePhanMem.Models.Sach>
+
+@{
+    ViewBag.Title = "Sách";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Sách</h2>
+    @using (Html.BeginForm("TimKiem", "QuanLySach", FormMethod.Post))
+    {
+        <div class="w3_search">
+            @Html.TextBox("txtSearch", "", htmlAttributes: new { @class = "TextBoxSearch", @placeholder = "Nhập từ khóa..." })
+            <input type="submit" name="Command" value="Tìm kiếm" />
+        </div>
+    }
+
+
+<p>
+    <i class="fa fa-address-card" aria-hidden="true"> @Html.ActionLink("Thêm mới", "ThemSach")</i>
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SLTon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NgayCapNhat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().GiaBan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().AnhBia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SachMoi)
+        </th>
+        <th width="150px">Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SLTon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayCapNhat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaBan)
+        </td>
+        <td width="30px" height="45">
+            @*@Html.DisplayFor(modelItem => item.AnhBia)*@
+            <span id="Anh"><img src="@Url.Content("~/image/Sach/"+item.AnhBia)" /></span>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SachMoi)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "SuaSach", new {@MaSach=item.MaSach }) |
+            @Html.ActionLink("Chi tiết", "ChiTietSach", new { @MaSach = item.MaSach }) |
+            @Html.ActionLink("Xóa", "XoaSach", new { @MaSach = item.MaSach, @onclick = "return confirm('Bạn chắc chắn muốn xóa?')" })
+        </td>
+    </tr>
+}
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("XemSach", new { page = page }))
+<style>
+    #Anh img{
+        width:40px;
+        height:55px;
+    }
+</style>
