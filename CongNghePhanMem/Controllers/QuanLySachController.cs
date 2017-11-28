@@ -405,5 +405,35 @@ namespace CongNghePhanMem.Controllers
             //}
             return RedirectToAction("XemSach", "QuanLySach");
         }
+	public ActionResult ChiTietSach(int MaSach=0)
+        {
+            
+            Sach sach = cn.Saches.SingleOrDefault(n => n.MaSach == MaSach);
+            if(sach==null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(sach);
+        }
+        public ActionResult TimKiem(FormCollection f, int ? page)
+        {
+            string sTuKhoa = f["txtSearch"].ToString();
+            ViewBag.TuKhoa = sTuKhoa;
+            List<Sach> lstSearch = cn.Saches.Where(n => n.TenSach.Contains(sTuKhoa)).ToList();
+            //phân trang
+            int pageNumber = (page ?? 1);
+            int pageSize = 18;
+            //kiểm tra
+            if (lstSearch.Count == 0)
+            {
+                ViewBag.ThongBao = "Không tìm thấy sản phẩm nào";
+                SetAlert("Không tìm thấy sản phẩm nào!", "warning");
+                return View(cn.Saches.OrderBy(n => n.TenSach).ToPagedList(pageNumber, pageSize));
+            }
+            ViewBag.ThongBao = "Đã tìm thấy" + lstSearch.Count + "kết quả.";
+            SetAlert("Đã tìm thấy:" + lstSearch.Count, "success");
+            return View(lstSearch.OrderBy(n => n.TenSach).ToPagedList(pageNumber, pageSize));
+        }
     }
 }
