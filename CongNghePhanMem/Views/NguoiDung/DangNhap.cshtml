@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng nhập</title>
+</head>
+<body>
+    
+        @using (@Html.BeginForm())
+        {
+            @Html.TextBox("txtTen","",htmlAttributes:new {@placeholder="Nhập tên tài khoản...", @id="txtTen" });
+            <span id="LoiTen"></span>
+            <br />
+            <input name="txtPass" type="password" id="txtPass" placeholder="Nhập mật khẩu..." />
+            <span id="LoiPass"></span>
+            <br />
+            @ViewBag.ThongBao
+            <input type="submit" id="btnSubmid" name="Command" value="Đăng nhập" />
+        }  
+
+    <script type="text/javascript">
+     $('#btnSubmid').click(function () {
+         var loi = 0
+         if ($('#txtTen').val() == "") {
+             $('#LoiTen').text('Bạn chưa nhập tên đăng nhập!');
+             loi++;
+         }
+         if ($('#txtPass').val() == "") {
+             $('#LoiPass').text('Bạn chưa nhập mật khẩu!');
+             loi++;
+         }
+         if (loi != 0) {
+             alert("Sai tên tài khoản hoặc mật khẩu, vui lòng đăng nhập lại...");
+             return false;
+         }
+         if (loi == 0) {
+             return true;
+         }
+         
+     });
+
+    </script>    
+
+</body>
+</html>

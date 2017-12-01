@@ -1,0 +1,107 @@
+﻿@model CongNghePhanMem.Models.NguoiDung
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng ký</title>
+</head>
+<body>
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control" ,@placeholder="Nhập tên đăng nhập..." } })
+                    @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
+                    <span id="LoiTen"></span>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-12" >
+                    @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập mật khẩu...", @type = "password" } })
+                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger"})
+                    <span id="LoiMK"></span>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập họ tên..." } })
+                    @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+                    <span id="LoiHT"></span>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập Email..." } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    <span id="LoiEmail"></span>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập số điện thoại..." } })
+                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                    <span id="LoiSDT"></span>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-12" style="float:right">
+                    <input id="btnSubmit" type="submit" name="Command" value="Đăng Ký" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+    <script type="text/javascript">
+    $('#btnSubmit').click(function () {
+        var loi = 0;
+        if ($('#TenDangNhap').val() == "") {
+            $('#LoiTen').text('Bạn chưa nhập tên đăng nhập!');
+            loi++;
+        }
+        if ($('#MatKhau').val() == "") {
+            $('#LoiMK').text('Bạn chưa nhập mật khẩu!');
+            loi++;
+        }
+        if ($('#HoTen').val() == "") {
+            $('#LoiHT').text('Bạn chưa nhập họ tên!');
+            loi++;
+        }
+        if ($('#Email').val() == "") {
+            $('#LoiEmail').text('Bạn chưa nhập Email!');
+            loi++;
+        }
+
+        if ($('#SDT').val() =="")
+        {
+            $('#LoiSDT').text('Bạn chưa nhập số điện thoại!');
+            loi++;
+        }
+        if (loi != 0)
+        {
+            return false;
+        }
+        if (loi==0)
+        {
+            return true;
+        }
+            
+
+    });
+    </script>
+</body>
+</html>
