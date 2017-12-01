@@ -77,7 +77,79 @@ namespace CongNghePhanMem.Controllers
             }
             return View();
         }
-      
+        public ActionResult LogOut()
+        {
+            Session["TenDangNhap"] = null;
+            SetAlert("Bạn đã đăng xuất, đăng nhập để thực hiện nhiều tác vụ!", "success");
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult ThongTin()
+        {
+            NguoiDung nd = (NguoiDung)Session["TenDangNhap"];
+            if (Session["TenDangNhap"]==null||Session["TenDangNhap"].ToString()=="")
+            {
+                SetAlert("Bạn chưa đăng nhập!", "warning");
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                NguoiDung lst = cn.NguoiDungs.SingleOrDefault(n => n.MaND == nd.MaND);
+                return View(lst);
+            }
+            
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThongTin(NguoiDung nd)
+        {
+            NguoiDung nd1 = cn.NguoiDungs.SingleOrDefault(n=>n.MaND==nd.MaND);
+            if(nd==null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            nd1.TenDangNhap = nd.TenDangNhap;
+            nd1.MatKhau = nd.MatKhau;
+            nd1.HoTen = nd.HoTen;
+            nd1.Email = nd.Email;
+            nd1.SDT = nd.SDT;
+            nd1.NgaySinh = nd.NgaySinh;
+            nd1.GioiTinh = nd.GioiTinh;
+            cn.SaveChanges();
+            SetAlert("Lưu thông tin thành công!", "success");
+            return View();
+        }
+        [HttpGet]
+        public ActionResult QuenMatKhau()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult QuenMatKhau(FormCollection f)
+        {
+            string sTen = f["txtTen"].ToString();
+            string sEmail = f["txtEmail"].ToString();
+            string sMK = f["txtPass"].ToString();
+            NguoiDung nd = cn.NguoiDungs.SingleOrDefault(n => n.TenDangNhap == sTen);
+            if(nd==null)
+            {
+                ViewBag.ThongBao = "Nhập sai tên đăng nhập !";
+                return View();
+            }
+            else
+            {
+                if (nd.Email != sEmail)
+                {
+                    ViewBag.ThongBao = "Nhập sai Email !";
+                    return View();
+                }
+            }            
+            nd.MatKhau = sMK;
+            cn.SaveChanges();
+            SetAlert("Lấy mật khẩu thành công, vui lòng đăng nhập lại!", "success");
+            return RedirectToAction("Index","Home");
         }
     }
     
