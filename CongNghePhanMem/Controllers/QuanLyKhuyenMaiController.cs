@@ -132,6 +132,62 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("KhuyenMai");
         }
+		public ActionResult ChiTietKM(int ?page,int MaKM=0)
+        {
+            int pageSize = 25;
+            int pageNumber = (page ?? 1);
+            var ct = cn.ChiTietKhuyenMais.Where(n => n.MaKM == MaKM).ToList().OrderBy(n=>n.MaSach).ToPagedList(pageNumber,pageSize);
+            Session["MaKM"] = MaKM;
+            return View(ct);
+        }
+        [HttpGet]
+        public ActionResult ThemSachKM()
+        {
+            ViewBag.MaSach = new SelectList(cn.Saches.Where(n=>n.GiaKhuyenMai==null).OrderBy(n => n.TenSach).ToList(), "MaSach", "TenSach");
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemSachKM(ChiTietKhuyenMai ct)
+        {
+            if(ModelState.IsValid)
+            {
+                Sach sach = cn.Saches.SingleOrDefault(n => n.MaSach == ct.MaSach);
+                if(sach.GiaBan<ct.GiamGia)
+                {
+                    SetAlert("Giá bán cao hơn giá bán!", "warning");
+                }
+                else
+                {
+                    string ma = Session["MaKM"].ToString();
+                    ChiTietKhuyenMai ct1 = new ChiTietKhuyenMai();
+                    ct1.MaSach = ct.MaSach;
+                    ct1.MaKM = int.Parse(ma);
+                    ct1.GiamGia = ct.GiamGia;
+                    cn.ChiTietKhuyenMais.Add(ct1);
+                    cn.SaveChanges();
+                    SetAlert("Thêm thành công", "success");
+                }               
+            }
+            return RedirectToAction("ChiTietKM",new { @MaKM = Session["MaKM"]});
+        }
+        public ActionResult XoaSachKM(int MaKM = 0, int MaSach = 0)
+        {
+            if(ModelState.IsValid)
+            {
+
+                ChiTietKhuyenMai ct = cn.ChiTietKhuyenMais.SingleOrDefault(n => n.MaKM == MaKM && n.MaSach == MaSach);
+                if(ct==null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                cn.ChiTietKhuyenMais.Remove(ct);
+                cn.SaveChanges();
+                SetAlert("Xoa thành công", "success");
+            }
+            return RedirectToAction("ChiTietKM", new { @MaKM = Session["MaKM"] });
+        }
 
     }
 }
