@@ -138,6 +138,107 @@ namespace CongNghePhanMem.Controllers
             ViewBag.sl = TongSoLuong();
             return View(lstGioHang);
         }
+        //Tính tổng sl
+        private int TongSoLuong()
+        {
+            int iTongSoLuong = 0;
+            List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
+            if (lstGioHang != null)
+            {
+                iTongSoLuong = lstGioHang.Sum(n => n.iSoLuong);
+            }
+            return iTongSoLuong;
+        }
+        public double TongTien()
+        {
+            double dTongTien = 0;
+            List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
+            if (lstGioHang != null)
+            {
+                dTongTien = lstGioHang.Sum(n => n.dThanhTien);
+            }
+            return dTongTien;
+
+        }
+        public ActionResult GioHangPartial()
+        {
+            if (TongSoLuong() == 0)
+            {
+                return PartialView();
+            }
+            ViewBag.TongSoLuong = TongSoLuong();
+            ViewBag.TongTien = TongTien();
+            return PartialView();
+        }
+        //Xây dựng đặt hàng
+        [HttpGet]
+        public ActionResult DatHang()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+        public ActionResult DatHang(FormCollection f)
+        {
+            //Kiểm tra tồn tại giỏ hàng
+            if(Session["GioHang"]==null)
+            {
+                RedirectToAction("Index", "Home");
+            }
+            //Thêm đơn hàng
+            DonDatHang ddh = new DonDatHang();
+            List<GioHang> gh = LayGioHang();
+            NguoiDung nd = (NguoiDung)Session["TenDangNhap"];
+            //Thêm đơn hàng
+            if(Session["TenDangNhap"] == null || Session["TenDangNhap"].ToString() == "")
+            {
+                ddh.MaND = null;
+            }
+            else
+            {
+                ddh.MaND = nd.MaND;
+            }
+            ddh.NgayDat = DateTime.Now;
+            ddh.HoTen = f["txtHoTen"].ToString();
+            ddh.DiaChi = f["txtDiaChi"].ToString();
+            ddh.SDT = f["txtDT"].ToString();
+            ddh.Email = f["txtMail"].ToString();
+            ddh.Tongtien = (decimal)TongTien();
+            cn.DonDatHangs.Add(ddh);
+            cn.SaveChanges();           
+            //thêm chi tiết đơn hàng
+            foreach(var item in gh)
+            {
+                ChiTietDonHang ctdh = new ChiTietDonHang();
+                ctdh.MaDH = ddh.MaDH;
+                ctdh.MaSach = item.iMaSach;
+                ctdh.SoLuong = item.iSoLuong;
+                ctdh.DonGia =(decimal)item.dDonGia;
+                cn.ChiTietDonHangs.Add(ctdh);
+            }
+            cn.SaveChanges();
+            try
+            {
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/TT/ttkhm.html"));
+
+                content = content.Replace("{{CustomerName}}", ddh.HoTen);
+                content = content.Replace("{{Phone}}", ddh.SDT);
+                content = content.Replace("{{Email}}", ddh.Email);
+                content = content.Replace("{{Address}}", ddh.DiaChi);
+                content = content.Replace("{{Total}}", ddh.Tongtien.ToString());
+                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+
+                new MailHelper().SendMail(ddh.Email, "Đơn hàng mới từ Hoàn Đa Cấp", content);
+                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ Hoàn Đa Cấp", content);
+            }
+            catch
+            {
+                ViewBag.error = "fail";
+            }
+            SetAlert("Đặt hàng thành công!", "success");
+            return RedirectToAction("AllSach", "Sach");
+        }
         
         
     }
