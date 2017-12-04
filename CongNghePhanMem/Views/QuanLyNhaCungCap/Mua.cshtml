@@ -1,0 +1,56 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<CongNghePhanMem.Models.ChiTietHopDongMua>
+
+@{
+    ViewBag.Title = "Mua";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Sách thuộc hợp đồng mua</h2>
+
+<p>
+    <i class="fa fa-address-card" aria-hidden="true">@Html.ActionLink("Thêm sách", "ThemSachMua")</i>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Số thứ tự
+        </th>
+        <th>
+            Tên Sách
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Giá mua
+        </th>
+        
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.STT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaMua)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Xóa", "XoaSachMua", new { @STT=item.STT, @onclick = "return confirm('Bạn chắc chắn muốn xóa?')" })
+        </td>
+    </tr>
+}
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Mua", new { page = page }))
