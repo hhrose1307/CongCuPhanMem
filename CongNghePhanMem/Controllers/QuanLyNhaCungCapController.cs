@@ -182,5 +182,52 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("HopDong", "QuanLyNhaCungCap");
         }
+	 //Show sách mua thuộc hợp đồng
+        public ActionResult Mua(int? page,int MaHD=0)
+        {
+            int pageSize = 30;
+            int pageNumber = (page ?? 1);
+            var ct = cn.ChiTietHopDongMuas.Where(n => n.MaHD == MaHD).ToList().OrderBy(n=>n.STT).ToPagedList(pageNumber,pageSize);
+            Session["MaHD"] = MaHD;
+            return View(ct);
+        }
+        //thêm sách
+        
+        [HttpGet]
+        public ActionResult ThemSachMua()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemSachMua(ChiTietHopDongMua ct,int MaHD=0)
+        {
+            if(ModelState.IsValid)
+            {
+                string hd = Session["MaHD"].ToString();
+                ChiTietHopDongMua ct1 = new ChiTietHopDongMua();
+                ct1.MaHD = int.Parse(hd); 
+                ct1.TenSach = ct.TenSach;
+                ct1.SoLuong = ct.SoLuong;
+                ct1.GiaMua = ct.GiaMua;
+                cn.ChiTietHopDongMuas.Add(ct1);
+                cn.SaveChanges();
+                SetAlert("Thêm thành công", "success");
+                var ma = Session["MaHD"];
+            }
+            return RedirectToAction("Mua", "QuanLyNhaCungCap",new {@MaHD= Session["MaHD"] });
+        }
+        public ActionResult XoaSachMua(int STT=0)
+        {
+            if(ModelState.IsValid)
+            {
+                ChiTietHopDongMua ct = cn.ChiTietHopDongMuas.SingleOrDefault(n => n.STT == STT);
+                cn.ChiTietHopDongMuas.Remove(ct);
+                cn.SaveChanges();
+                SetAlert("Xóa thành công!", "success");
+            }
+            return RedirectToAction("Mua", "QuanLyNhaCungCap", new { @MaHD = Session["MaHD"] });
+
+        }
     }
 }
