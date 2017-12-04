@@ -40,6 +40,39 @@ namespace CongNghePhanMem.Controllers
             }
             return lstGioHang;
         }
+        //Thêm giỏ hàng
+        public ActionResult ThemGioHang(int iMaSach, string strURL)
+        {
+            Sach sach = cn.Saches.SingleOrDefault(n => n.MaSach == iMaSach);
+            if (sach == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }//bắt lỗi khi sp hết hàng
+            if (sach.SLTon == 0)
+            {
+                return Redirect(strURL);
+            }
+            else
+            {
+                //Lấy session giỏ hàng
+                List<GioHang> lstGioHang = LayGioHang();
+                GioHang sanpham = lstGioHang.Find(n => n.iMaSach == iMaSach);
+                if (sanpham == null)
+                {
+                    sanpham = new GioHang(iMaSach);
+                    lstGioHang.Add(sanpham);
+                    return Redirect(strURL);
+                }
+                else
+                {
+                    sanpham.iSoLuong++;
+                    return Redirect(strURL);
+                }
+
+            }
+            
+        }
         
         
     }
