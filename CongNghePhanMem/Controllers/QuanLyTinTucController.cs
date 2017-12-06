@@ -31,6 +31,43 @@ namespace CongNghePhanMem.Controllers
                 TempData["AlertType"] = "alert-danger";
             }
         }
-        
+        [HttpGet]
+        [ValidateInput(false)]
+        public ActionResult TraLoi(int MaPH = 0)
+        {
+            PhanHoi ph = cn.PhanHois.SingleOrDefault(n => n.MaPH == MaPH);
+            return View(ph);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult TraLoi(PhanHoi ph)
+        {
+            if (ModelState.IsValid)
+            {
+                PhanHoi ph1 = cn.PhanHois.SingleOrDefault(n => n.MaPH == ph.MaPH);
+                if (ph1 == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                ph1.TraLoi = ph.TraLoi.ToString();
+                cn.SaveChanges();
+                SetAlert("Trả lời thành công!", "success");
+            }
+            return RedirectToAction("YKien", "QuanLyTinTuc");
+
+
+        }
+        public ActionResult XoaYKien(int MaPH = 0)
+        {
+            if (ModelState.IsValid)
+            {
+                PhanHoi ph = cn.PhanHois.SingleOrDefault(n => n.MaPH == MaPH);
+                cn.PhanHois.Remove(ph);
+                cn.SaveChanges();
+                SetAlert("Xóa thành công", "success");
+            }
+            return View();
+        }
     }
 }
