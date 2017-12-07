@@ -34,6 +34,11 @@ namespace CongNghePhanMem.Controllers
             }
         }
 
-        
+        public ActionResult TinhTrang()
+        {
+            List<TinhTrangNguoiDung> nguoidung = cn.TinhTrangNguoiDungs.ToList();
+            return View(nguoidung);
+        }
+        [HttpGet]
     }
 }
