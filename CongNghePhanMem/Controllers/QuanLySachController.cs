@@ -41,5 +41,45 @@ namespace CongNghePhanMem.Controllers
             var cd = cn.ChuDes.ToList().OrderBy(n=>n.TenChuDe).ToPagedList(pageNumber,pageSize);
             return View(cd);
         }
+[HttpGet]
+        public ActionResult ThemCD()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemCD(ChuDe cd)
+        {
+            if(ModelState.IsValid)
+            {
+                ChuDe cd1 = new ChuDe();
+                cd1.TenChuDe = cd.TenChuDe;
+                cn.ChuDes.Add(cd1);
+                cn.SaveChanges();
+                SetAlert("Thêm thành công!", "success");
+            }
+            return RedirectToAction("ChuDe", "QuanLySach");
+        }
+        public ActionResult XoaCD(int MaCD=0)
+        {
+            if(ModelState.IsValid)
+            {
+                Sach sach = cn.Saches.FirstOrDefault(n => n.MaCD == MaCD);
+                if(sach!=null)
+                {
+                    SetAlert("Tồn tại chủ đề trong quản lý sách!", "warning");
+                }
+                else
+                {
+                    ChuDe cd = cn.ChuDes.SingleOrDefault(n => n.MaCD == MaCD);
+                    cn.ChuDes.Remove(cd);
+                    cn.SaveChanges();
+                    SetAlert("Xóa thành công", "success");
+                }
+                
+            }
+            return RedirectToAction("ChuDe","QuanLySach");
+        }
     }
 }
