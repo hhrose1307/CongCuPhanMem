@@ -74,5 +74,31 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("TinhTrang", "QuanLyNguoiDung");         
         }
+		public ActionResult NguoiDung(int ? page)
+        {
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
+            var nd = cn.NguoiDungs.ToList().OrderBy(n=>n.TenDangNhap).ToPagedList(pageNumber,pageSize);
+            return View(nd);
+        }
+        [HttpGet]
+        public ActionResult SuaNguoiDung(int MaND=0)
+        {
+            NguoiDung nd = cn.NguoiDungs.SingleOrDefault(n => n.MaND == MaND);
+            //lấy dữ liệu vao dropdown
+            ViewBag.MaTT = new SelectList( cn.TinhTrangNguoiDungs.ToList(),"MaTT","TenTT",nd.MaND);
+            return View();
+        }
+        public ActionResult SuaNguoiDung(NguoiDung nd)
+        {
+            if(ModelState.IsValid)
+            {
+                NguoiDung nd1 = cn.NguoiDungs.SingleOrDefault(n => n.MaND == nd.MaND);
+                nd1.MaTT = nd.MaTT;
+                cn.SaveChanges();
+                SetAlert("Sửa thành công!", "success");
+            }
+            return RedirectToAction("NguoiDung", "QuanLyNguoiDung");                       
+        }
     }
 }
