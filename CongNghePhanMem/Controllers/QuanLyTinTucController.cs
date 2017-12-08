@@ -69,5 +69,85 @@ namespace CongNghePhanMem.Controllers
             }
             return View();
         }
+	//Tin Tức
+        public ActionResult TinTuc(int ? page)
+        {
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            var tt = cn.TinTucs.ToList().OrderBy(n=>n.MaTT).ToPagedList(pageNumber,pageSize);
+            return View(tt);
+        }
+        [HttpGet]
+        [ValidateInput(false)]
+        public ActionResult SuaTT(int MaTT = 0)
+        {
+            TinTuc tt = cn.TinTucs.SingleOrDefault(n => n.MaTT == MaTT);
+            return View(tt);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaTT(TinTuc tt)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                TinTuc tt1 = cn.TinTucs.SingleOrDefault(n => n.MaTT == tt.MaTT);
+                
+                    tt1.TenTT = tt.TenTT;
+                    tt1.MoTa = tt.MoTa;
+                    cn.SaveChanges();
+                    SetAlert("Sửa thành công!", "success");
+                
+            }
+            return RedirectToAction("TinTuc", "QuanLyTinTuc");
+        }
+        //Xóa
+        public ActionResult XoaTT(int MaTT = 0)
+        {
+            TinTuc tt = cn.TinTucs.SingleOrDefault(n => n.MaTT == MaTT);
+            if (tt == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            cn.TinTucs.Remove(tt);
+            cn.SaveChanges();
+            SetAlert("Xóa thành công!", "success");
+            return RedirectToAction("TinTuc", "QuanLyTinTuc");
+        }
+
+        //Thêm tin tức
+        [HttpGet]
+        public ActionResult ThemTT()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemTT(TinTuc tt,HttpPostedFileBase fileUpload)
+        {
+            var fileName = Path.GetFileName(fileUpload.FileName);
+            var path = Path.Combine(Server.MapPath("~/image/TinTuc"), fileName);
+            if (System.IO.File.Exists(path))
+            {
+                ViewBag.ThongBao = "Hình ảnh đã tồn tại...";
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    TinTuc tt1 = new TinTuc();                   
+                    fileUpload.SaveAs(path);
+                    tt1.TenTT = tt.TenTT;
+                    tt1.TenTT = tt.TenTT;
+                    tt1.AnhBia = fileName;
+                    tt1.MoTa = tt.MoTa;
+                    cn.TinTucs.Add(tt1);
+                    cn.SaveChanges();
+                    SetAlert("Thêm thành công!", "success");
+                }
+            }
+            return RedirectToAction("TinTuc", "QuanLyTinTuc");
+        }
     }
 }
