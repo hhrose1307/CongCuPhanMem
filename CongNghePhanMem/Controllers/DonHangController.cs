@@ -58,6 +58,37 @@ namespace CongNghePhanMem.Controllers
             return RedirectToAction("DonHang");
             
         }
+	 //Sửa
+        [HttpGet]
+        public ActionResult SuaDH(int MaDH=0)
+        {
+            DonDatHang dh = cn.DonDatHangs.SingleOrDefault(n => n.MaDH == MaDH);
+            return View(dh);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaDH(DonDatHang dh)
+        {
+            if (ModelState.IsValid)
+            {
+                DonDatHang dhh = cn.DonDatHangs.SingleOrDefault(n => n.MaDH == dh.MaDH);
+                dhh.DaThanhToan = dh.DaThanhToan;
+                dhh.TinhTrangGiaoHang = dh.TinhTrangGiaoHang;
+                dhh.NgayGiao = dh.NgayGiao;
+                cn.SaveChanges();
+                SetAlert("Sửa thành công", "success");
+            }
+            return RedirectToAction("DonHang");
+        }
+
+        //Chi tiết
+        public ActionResult ChiTietDH(int ? page,int MaDH=0)
+        {
+            int pageSize = 25;
+            int pageNumber = (page ?? 1);
+            var ct = cn.ChiTietDonHangs.Where(n => n.MaDH == MaDH).ToList().OrderBy(n=>n.MaDH).ToPagedList(pageNumber,pageSize);
+            return View(ct);
+        }
     }
 
 }
