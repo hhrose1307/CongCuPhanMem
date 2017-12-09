@@ -60,6 +60,28 @@ namespace CongNghePhanMem.Controllers
             }
         }
 
-        
+        [HttpGet]
+        public ActionResult Send()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Send(FormCollection f)
+        {
+            //Kiểm tra nội dung tồn tại
+            if (f["txtNoiDung"] == null|| f["txtNoiDung"] =="")
+            {
+                return View();
+            }
+            PhanHoi ddh = new PhanHoi();
+            NguoiDung nd = (NguoiDung)Session["TenDangNhap"];
+            //Thêm phản hôig
+            ddh.MaND = nd.MaND;
+            ddh.NoiDung = f["txtNoiDung"].ToString();
+            cn.PhanHois.Add(ddh);
+            cn.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
