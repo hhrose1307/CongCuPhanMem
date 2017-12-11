@@ -35,5 +35,21 @@ namespace CongNghePhanMem.Controllers
             else
                 return View();
         }
+	 [HttpGet]
+        public ActionResult KetQuaSearch(string sTuKhoa, int? page)
+        {
+            List<Sach> lstSearch = cn.Saches.Where(n => n.TenSach.Contains(sTuKhoa)).ToList();
+            //phân trang
+            int pageNumber = (page ?? 1);
+            int pageSize = 18;
+            //kieetm tra
+            if (lstSearch.Count == 0)
+            {
+                ViewBag.ThongBao = "Không tìm thấy sản phẩm nào";
+                return View(cn.Saches.OrderBy(n => n.TenSach).ToPagedList(pageNumber, pageSize));
+            }
+            ViewBag.ThongBao = "Đã tìm thấy"  +   lstSearch.Count   +  "kết quả!";
+            return View(lstSearch.OrderBy(n => n.TenSach).ToPagedList(pageNumber, pageSize));
+        }
     }
 }
