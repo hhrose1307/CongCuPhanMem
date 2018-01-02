@@ -1,0 +1,38 @@
+﻿<style>
+    #map_canvas {
+        height: 300px;
+    }
+</style>
+@*?sensor=false*@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASmQugLkCndcVe7Vg7D0_ziNN08piUNyM&callback=initMap">
+
+</script>
+<script>
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(@ViewBag.Toado1, @ViewBag.Toado2);
+        var mapOptions = {
+            zoom: 15,
+            center: myLatlng
+        };
+
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+        var contentString = "<table><tr><th>@ViewBag.Ten</th></tr><tr><td>Địa chỉ: @ViewBag.Diachi</td></tr></table>";
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Địa Chỉ'
+        });
+        infowindow.open(map, marker);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<div class="col-md-12 w3ls_footer_grid_right" style="background-color:snow">
+    <div class="map" id="map_canvas"></div>
+</div>

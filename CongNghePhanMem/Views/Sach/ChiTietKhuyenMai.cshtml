@@ -1,0 +1,50 @@
+﻿@using CongNghePhanMem.Models;
+@model KhuyenMai
+@{
+    ViewBag.Title = "Chi tiết khuyến mãi";
+    Layout = "~/Views/Shared/LayoutHF.cshtml";
+}
+<div class="container">
+    <div class="single-page-agile-info">
+        <div class="show-top-grids-w3lagile">
+            <div class="col-sm-8 single-left">
+                <div class="song">
+                    <br />
+                    <div class="image">
+                        <img src="@Url.Content("~/image/KhuyenMai/"+Model.AnhKM)" width="720" height="300" />
+                    </div>
+                    <div class="song-info">
+                        <h3 style="color:orangered">@Model.TenKM</h3>
+                    </div>
+                    <div class="button">
+                        <ul id="myTab" class="nav nav-tabs">
+                            <li><a href="@Url.Action("SachThuocKM", "Sach",new { @MaKM=Model.MaKM})" id="profile-tab" aria-controls="profile" aria-expanded="false">Xem sách thuộc khuyến mãi </a></li>
+                        </ul>
+                    </div>  
+                    <h4 style="color:orangered">Ngày bắt đầu: @Model.NgayBatDau</h4><br />
+                    <h4 style="color:orangered">Ngày bắt đầu: @Model.NgayKetThuc</h4><br />
+                    <h3 style="color:orangered">Nội dung </h3><br />
+                    <h4>@Model.NoiDung</h4><br />
+                </div>
+                <br />
+                <div class="song-grid-right">
+                    <div class="share">
+                        <h4>Share this</h4>
+                        <div class="fb-like" data-href="http://localhost:51138/Sach/ChiTietKhuyenMai?@Model.MaKM" data-layout="standard" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+                <div class="fb-comments" data-href="http://localhost:51138/Sach/ChiTietKhuyenMai?@Model.MaKM" data-numposts="5"></div>
+            </div>
+            <div class="col-md-4 single-right">
+                <h3>Giảm giá nhiều</h3>
+                <div class="single-grid-right">
+                    @Html.Action("SachRight", "Sach")
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+

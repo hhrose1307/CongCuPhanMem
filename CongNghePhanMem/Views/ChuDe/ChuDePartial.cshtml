@@ -1,0 +1,16 @@
+﻿@using CongNghePhanMem.Models;
+@model List<ChuDe>
+
+@{
+
+    foreach (var item in Model)
+    {
+        <div class="col-sm-4">
+            <ul class="multi-column-dropdown">
+                <li><a href="@Url.Action("SachTheoChuDe","ChuDe", new{ @MaCD=item.MaCD})">@item.TenChuDe</a></li>
+            </ul>
+        </div>
+                
+    }
+}
+

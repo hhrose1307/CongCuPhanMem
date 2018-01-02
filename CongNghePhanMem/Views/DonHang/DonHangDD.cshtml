@@ -1,0 +1,78 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<CongNghePhanMem.Models.DonDatHang>
+
+@{
+    ViewBag.Title = "Đơn hàng";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Đơn hàng đã duyệt</h2>
+
+<table class="table">
+    <tr>      
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaND)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NgayDat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NgayGiao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Tongtien)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>      
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.MaND)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayGiao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tongtien)
+        </td>
+        <td>
+            @Html.ActionLink("Chi tiết", "ChiTietDHDD", new {@MaDH=item.MaDH}) |
+            @Html.ActionLink("Xóa", "XoaDHDD", new { @MaDH = item.MaDH, @onclick = "return confirm('Bạn chắc chắn muốn xóa?')" })
+        </td>
+    </tr>
+}
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("XemSach", new { page = page }))

@@ -1,0 +1,43 @@
+﻿
+
+@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/LayoutHF.cshtml";
+}
+
+<div class="general">
+    <div class="container">
+
+       <h3>Hoàn đa cấp xin chào các bạn đọc giả</h3> <br />
+        <h4>Hãy liên hệ với chúng tôi theo số điện thoại:</h4>
+        @Html.Action("DienThoai", "GiaoDien") <br />
+        <h4>Địa chỉ cửa hàng:</h4>
+        @Html.Action("DiaChi","GiaoDien")<br />
+        <h4>Phương thức thanh toán</h4>
+        <span style="font-size:18px"><i class="fa fa-money" aria-hidden="true"></i>Thanh toán tại cửa hàng</span><br />
+        <span style="font-size:18px"><i class="fa fa-building-o" aria-hidden="true">Thanh toán qua ngân hàng</i></span>
+        <table border="1" cellpadding="5" cellspacing="5" width="800" style="text-align:center">
+            <caption style="color:orangered"><h3></h3></caption>
+            <tr style="color:orangered">
+                <td>Tên ngân hàng</td>
+
+                <td>Số Tài khoản</td>
+
+                <td>Họ tên chủ thẻ</td>
+
+                <td>Địa chỉ</td>
+            </tr>
+            @Html.Action("ThanhToan", "Home")
+            </table>
+            <br />
+        <h4>Lưu ý</h4><br />
+        <h5>1. Trước khi gửi phải liên hệ thỏa thuận với cửa hàng.</h5><br />
+        <h5>2. Gửi phải đúng thông tin tài khoản ngân hàng đã liệt kê.</h5><br />
+        <h5>3. Sau khi gửi tiền xong, liên hệ với cửa hàng xác nhận đã chuyển.</h5><br />
+        <h5>4. Trong vòng 30p nếu cửa hàng nhận được tiền thì sẽ báo ngay cho đọc giả.</h5><br />
+        <h5>5. Hàng sẽ được chuyển từ 2-7 ngày tùy vào địa chỉ đọc giả cung cấp.</h5><br />
+        <h5>6. Chỉ free ship trong phạm vi 11km.</h5><br />
+            <h4>Shop bắt làm việc từ 8h-22h mỗi ngày, nghỉ các ngày lễ trong năm.</h4>
+</div>
+</div>
+

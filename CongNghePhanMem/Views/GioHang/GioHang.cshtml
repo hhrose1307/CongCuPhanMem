@@ -1,0 +1,136 @@
+﻿@using CongNghePhanMem.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/LayoutHF.cshtml";
+}
+<h4>@ViewBag.BatLoi</h4>
+<div class="general">
+    <div class="container">
+        <br />
+        
+        <table  border="1" cellpadding="5" cellspacing="5" width="800" style="text-align:center">
+            <caption style="color:orangered"><h3>Chi tiết giỏ hàng</h3></caption>
+            <tr style="color:orangered">
+                <td>Tên Sách</td>
+
+                <td style="width:15%">Ảnh Bìa</td>
+
+                <td style="width:10%">Số Lượng</td>
+
+                <td>Đơn Giá</td>
+
+                <td>Thành Tiền</td>
+                
+                <td>Thao tác</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.sTenSach</td>
+
+                    <td><a href="@Url.Action("ChiTiet","Sach",new { @MaSach=item.iMaSach})"><img src="@Url.Content("~/image/Sach/"+item.sHinhAnh)" width="50" height="50" /></a></td>
+                    @using (Html.BeginForm("SuaGioHang", "GioHang", new { @iMaSP = item.iMaSach }))
+                    {
+                        <td><div class="sl">@Html.TextBox("txtSoLuong", item.iSoLuong)</div></td>
+                        <td>@String.Format("{0:0,0}", item.dDonGia) VND</td>
+                        <td>@String.Format("{0:0,0}", item.dThanhTien) VND</td>
+                        <td><input type="submit" value="Cập nhật" @*onclick="return confirm('Nếu số lượng không đủ sẽ cập nhật thất bại!')"*@/>
+                        <button onclick="return confirm('Bạn chắc chắn muốn xóa?')">@Html.ActionLink("Xóa", "XoaGioHang", new { @iMaSP = item.iMaSach })</button>
+                    </td>
+                    }               
+                </tr>
+            }           
+                
+                      
+        </table>
+        <br />
+        <br />
+        <h4 style="color:orangered">Tổng số lượng: @ViewBag.sl</h4><br />
+        <h4 style="color:orangered">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tong) VND</h4>
+        <div id="Tong" class="text hide">
+           
+        </div>
+        <br />
+        @using (Html.BeginForm("DatHang", "GioHang"))
+         {
+        <div class="thongtin">
+            <h2>Mời bạn nhập thông tin gửi hàng:</h2> <br />
+            <h4>Tên đọc giả</h4>
+            <div id="txtHoTen1">
+                <input name="txtHoTen" type="text" id="txtHoTen" /><br />
+                <span id="LoiHoTen"></span>
+            </div>          
+            <br />
+            <h4>Địa chỉ gửi:</h4>
+            <div id="txtDiaChi1">
+                <input name="txtDiaChi" type="text" id="txtDiaChi" /><br />
+                <span id="LoiDiaChi"></span>
+            </div>         
+            <br />
+            <h4>Số điện thoại:</h4>
+            <div id="txtDT1">
+                <input name="txtDT" type="text" id="txtDT" /> <br />
+                <span id="LoiDT"></span>
+            </div>                       
+            <br />
+            <h4>Email:</h4>
+            <div id="txtEmail1">
+                <input name="txtMail" type="text" id="txtMail" /> <br />
+                <span id="LoiMail"></span>
+            </div>           
+            <br />
+            
+        </div>
+            <input type="submit" value="Đặt hàng" id="btnDatHang" style="background-color:orangered"  />
+        }           
+   </div>
+</div>
+<script>
+     function Mua() {                                   
+         alert("Đặt mua thành công, chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất");
+     }
+</script>
+<style>
+.thongtin input[type="text"]{
+    width:50%;
+}
+    .sl input[type="text"] {
+        width: 40%;
+        text-align:center;
+    }
+#btnDatHang {
+    width:150px;
+    height:75px;
+}
+</style>
+<script type="text/javascript">
+     $('#btnDatHang').click(function () {
+         var loi = 0
+         if ($('#txtHoTen').val() == "") {
+             $('#LoiHoTen').text('Bạn chưa nhập họ tên!');
+             loi++;
+         }
+         if ($('#txtDiaChi').val() == "") {
+             $('#LoiDiaChi').text('Bạn chưa nhập địa chỉ!');
+             loi++;
+         }
+         if ($('#txtDT').val() == "" || $('#txtDT').val() == null) {
+             $('#LoiDT').text('Bạn chưa nhập số điện thoại!');
+             loi++;
+         }
+         if ($('#txtMail').val() == "") {
+             $('#LoiMail').text('Bạn chưa nhập Email!');
+             loi++;
+         }
+
+         if (loi != 0) {
+             return false;
+         }
+         if (loi == 0) {
+             return true;
+         }
+         
+     });
+
+</script>

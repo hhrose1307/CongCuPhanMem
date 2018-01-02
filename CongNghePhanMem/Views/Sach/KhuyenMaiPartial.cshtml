@@ -1,0 +1,19 @@
+﻿@using CongNghePhanMem.Models;
+@model List<KhuyenMai>
+
+@{
+    foreach (var item in Model)
+    {
+        
+           <li>
+                <img src="@Url.Content("~/image/KhuyenMai/" + item.AnhKM)" alt=""/>
+                <p class='title'>@item.TenKM <br /><a href="@Url.Action("ChiTietKhuyenMai","Sach",new {@MaKM=item.MaKM})">Xem chi tiết...</a></p>
+               @if (item.NoiDung.Length > 100)
+               {
+                <p class='description'>@item.NoiDung.Substring(0,100) ...</p>
+               }
+                <p class='description'>@item.NoiDung</p>              
+           </li>
+    }
+}
+
